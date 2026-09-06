@@ -11,9 +11,12 @@ function check(condition, message) {
   process.stdout.write(`✓ ${message}\n`);
 }
 
+// The command is started as node, not as npm. On Windows npm is a .cmd file, which spawn cannot
+// start without a shell. Starting node also keeps .env.local out of the child, so the checks
+// below cannot see a real key even on a machine that has one.
 function render(args, env = {}) {
   return new Promise((resolve) => {
-    const child = spawn("npm", ["run", "--silent", "render", "--", ...args], {
+    const child = spawn(process.execPath, ["--import", "tsx", "src/cli/render-lesson.ts", ...args], {
       cwd: process.cwd(),
       env: { ...process.env, FAL_KEY: "", ...env },
       stdio: ["ignore", "pipe", "pipe"],
@@ -53,7 +56,7 @@ try {
   check(prompt.includes("CHARACTER SHEET"), "the dry run writes the compiled character sheet");
   check(prompt.includes("This line is only a test."), "the dry run writes the narration into the prompt");
 
-  const noKey = await render([goodPlan, "--yes", "--out", slug]);
+  const noKey = await render([goodPlan, "--out", slug]);
   check(noKey.code === 1, "a render without FAL_KEY stops");
   check(noKey.output.includes("FAL_KEY is missing"), "the missing key is named");
 

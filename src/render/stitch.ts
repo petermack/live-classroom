@@ -51,6 +51,12 @@ export async function writeSubtitles(slug: string, plan: LessonPlan): Promise<st
   return path;
 }
 
+// ffmpeg's concat list treats a backslash as an escape character, so a Windows path breaks it.
+// ffmpeg reads a forward-slash path on every platform, Windows included.
+export function concatEntry(videoPath: string): string {
+  return `file '${videoPath.replace(/\\/g, "/").replace(/'/g, "'\\''")}'`;
+}
+
 export type StitchResult =
   | Readonly<{ ok: true; path: string; reEncoded: boolean }>
   | Readonly<{ ok: false; message: string }>;
@@ -63,7 +69,7 @@ export async function stitchLesson(input: {
   const listPath = join(directory, "concat.txt");
   const outputPath = join(directory, "lesson.mp4");
   const list = input.plan.scenes
-    .map((scene) => `file '${sceneVideoPath(input.slug, scene.number).replace(/'/g, "'\\''")}'`)
+    .map((scene) => concatEntry(sceneVideoPath(input.slug, scene.number)))
     .join("\n");
   await writeFile(listPath, `${list}\n`);
 
