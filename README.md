@@ -79,6 +79,11 @@ Four things protect the credit:
 
 `recordings/` is git-ignored.
 
+If the join step says ffmpeg was not found, the `ffmpeg-static` download did not run on your
+machine. Run `npm rebuild ffmpeg-static`, or install ffmpeg yourself and put it on the PATH;
+the pipeline uses whichever it finds. Then run the same command again with `--join-only`. The
+clips are already on disk, so this costs nothing.
+
 ## Prompt debugging
 
 The one thing to know: look at what fal **actually** rendered from, not at what you sent. H3

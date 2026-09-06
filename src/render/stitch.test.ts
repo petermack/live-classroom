@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import type { LessonPlan } from "@/lib/lesson-plan";
-import { concatEntry, subtitleTrack } from "./stitch";
+import { concatEntry, resolveFfmpeg, subtitleTrack } from "./stitch";
 
 const plan: LessonPlan = {
   title: "How rain works",
@@ -34,4 +34,14 @@ test("keeps a POSIX path as it is", () => {
 
 test("escapes a quote in a folder name", () => {
   assert.equal(concatEntry("/home/pat's files/scene-01.mp4"), "file '/home/pat'\\''s files/scene-01.mp4'");
+});
+
+test("uses the packaged ffmpeg when its file is really there", () => {
+  assert.equal(resolveFfmpeg("/node_modules/ffmpeg-static/ffmpeg", () => true),
+    "/node_modules/ffmpeg-static/ffmpeg");
+});
+
+test("falls back to an installed ffmpeg when the packaged file is missing", () => {
+  assert.equal(resolveFfmpeg("/node_modules/ffmpeg-static/ffmpeg.exe", () => false), "ffmpeg");
+  assert.equal(resolveFfmpeg(null), "ffmpeg");
 });

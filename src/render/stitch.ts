@@ -1,4 +1,5 @@
 import { spawn } from "node:child_process";
+import { existsSync } from "node:fs";
 import { writeFile } from "node:fs/promises";
 import { join } from "node:path";
 
@@ -8,17 +9,28 @@ import { RENDER_CONFIG } from "@/lib/render-config";
 import type { LessonPlan } from "@/lib/lesson-plan";
 import { lessonDirectory, sceneVideoPath } from "@/render/output";
 
+export const FFMPEG_REPAIR =
+  "ffmpeg was not found. Run `npm rebuild ffmpeg-static` to download it again, or install ffmpeg " +
+  "yourself and put it on the PATH. Your clips are safe: `--join-only` costs nothing.";
+
+// ffmpeg-static reports a path whether or not its download step ran, so the file has to be
+// checked. Any ffmpeg the user installed is the fallback, and covers a blocked download.
+export function resolveFfmpeg(
+  packaged: string | null,
+  onDisk: (path: string) => boolean = existsSync,
+): string {
+  return packaged && onDisk(packaged) ? packaged : "ffmpeg";
+}
+
 function run(args: readonly string[]): Promise<{ ok: boolean; output: string }> {
-  const binary = ffmpegPath;
-  if (!binary) {
-    return Promise.resolve({ ok: false, output: "ffmpeg-static did not supply a binary" });
-  }
+  const binary = resolveFfmpeg(ffmpegPath);
   return new Promise((resolve) => {
     const child = spawn(binary, [...args], { stdio: ["ignore", "pipe", "pipe"] as const });
     let output = "";
     child.stdout.on("data", (chunk: Buffer) => { output += chunk.toString(); });
     child.stderr.on("data", (chunk: Buffer) => { output += chunk.toString(); });
-    child.on("error", (error: Error) => resolve({ ok: false, output: error.message }));
+    child.on("error", (error: NodeJS.ErrnoException) =>
+      resolve({ ok: false, output: error.code === "ENOENT" ? FFMPEG_REPAIR : error.message }));
     child.on("close", (code: number | null) => resolve({ ok: code === 0, output }));
   });
 }
@@ -85,5 +97,6 @@ export async function stitchLesson(input: {
     outputPath,
   ]);
   if (encode.ok) return { ok: true, path: outputPath, reEncoded: true };
+  if (encode.output === FFMPEG_REPAIR) return { ok: false, message: FFMPEG_REPAIR };
   return { ok: false, message: encode.output.trim().split("\n").slice(-3).join(" ") };
 }
