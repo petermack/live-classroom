@@ -47,7 +47,11 @@ The render command refuses a plan that breaks any of these. It says which scene 
 - A `visualAction` is 500 characters or fewer.
 - The plan has 1 to 24 scenes.
 
-A repeated `visualAction` is a warning, not an error.
+These are warnings, not errors:
+
+- A repeated `visualAction`.
+- A plan in which no `visualAction` names the teacher. That is the mark of a plan written for
+  an earlier character, so read it before you spend anything.
 
 ## The rules you must keep yourself
 

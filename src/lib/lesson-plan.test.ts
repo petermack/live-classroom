@@ -67,3 +67,24 @@ test("warns about a repeated visual action", () => {
 test("rejects a plan that is not an object", () => {
   assert.equal(parseLessonPlan("nope").plan, null);
 });
+
+test("warns when no scene names the current teacher", () => {
+  const result = parseLessonPlan(
+    planWith([
+      { narration: "The sun heats the sea.", visualAction: "Tung points at a wave" },
+      { narration: "The water rises as vapour.", visualAction: "Tung watches the vapour" },
+    ]),
+  );
+  assert.ok(result.plan);
+  assert.ok(result.warnings.some((warning) => warning.includes("Check that this plan was written")));
+});
+
+test("stays quiet when one scene names the teacher and others are diagrams", () => {
+  const result = parseLessonPlan(
+    planWith([
+      { narration: "The sun heats the sea.", visualAction: "Wally points at a wave" },
+      { narration: "The water rises as vapour.", visualAction: "A side-on diagram of vapour" },
+    ]),
+  );
+  assert.deepEqual(result.warnings, []);
+});

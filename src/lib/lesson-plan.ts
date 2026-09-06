@@ -113,6 +113,14 @@ export function parseLessonPlan(value: unknown): LessonPlanResult {
     scenes.push({ number, narration, visualAction, note: trimmedString(raw.note) });
   });
 
+  // A plan written for a different character names that character in every beat and never
+  // names this one. One beat may hold a diagram and no teacher, but a whole plan may not.
+  if (scenes.length > 0 && !scenes.some((scene) => TEACHER_NAME_PATTERN.test(scene.visualAction))) {
+    warnings.push(
+      `no visualAction names ${TEACHER.name}. Check that this plan was written for the current character`,
+    );
+  }
+
   if (errors.length > 0 || !title || !topic) {
     return { plan: null, errors, warnings };
   }

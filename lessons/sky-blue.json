@@ -1,0 +1,55 @@
+{
+  "title": "Blue Bounces!",
+  "topic": "why the sky is blue, for five-year-olds",
+  "bigQuestion": "Why is the sky blue?",
+  "scenes": [
+    {
+      "narration": "Look up! The sky is blue. Where does the blue come from?",
+      "visualAction": "Wide low-angle shot: Wally stands in a grassy field and points straight up at a huge flat blue sky that fills the top of the frame."
+    },
+    {
+      "narration": "Sunlight looks plain white. But every colour is hiding inside it.",
+      "visualAction": "Medium shot on a dark background: one narrow white sunbeam cuts across the frame, and Wally leans in close to peer along it."
+    },
+    {
+      "narration": "Let the light out, and a rainbow jumps free. Red, yellow, green, blue!",
+      "visualAction": "Snap cut to a close shot: the white beam strikes a clear glass block and springs out of the far side as a wide rainbow fan that sweeps across the frame."
+    },
+    {
+      "narration": "Blue is the tiny bouncy colour. Red is the big slow one.",
+      "visualAction": "Split frame: on the left a small blue ball bounces fast and high, on the right a big red ball rolls slowly in a straight line, and Wally looks from one side to the other."
+    },
+    {
+      "narration": "The air looks empty. It is not! It is full of tiny bits.",
+      "visualAction": "The camera pushes in slowly on plain blue air until countless pale specks drift into view, and Wally steps in beside them and taps one."
+    },
+    {
+      "narration": "Big slow red goes straight past the tiny bits. Whoosh!",
+      "visualAction": "Flat side-on diagram shot: a big red ball rolls through a drifting field of specks in one straight line and leaves the frame, while Wally tracks it with a sweeping point."
+    },
+    {
+      "narration": "Little blue hits them and bounces away. Boing! Boing!",
+      "visualAction": "The same side-on diagram: a small blue ball enters, strikes speck after speck, and ricochets in a new direction on every hit, with a snappy held pose at each bounce."
+    },
+    {
+      "narration": "Blue bounces all over the sky. Say it with me: blue bounces!",
+      "visualAction": "Fast pull back to a wide shot: hundreds of blue balls ricochet across the sky until the frame turns solid blue, and Wally cheers from the bottom corner."
+    },
+    {
+      "narration": "So blue comes down to your eyes from every part of the sky.",
+      "visualAction": "Ground-level shot from behind Wally: thin blue arrows rain down from every part of the sky and meet at the spot where he stands looking up."
+    },
+    {
+      "narration": "The sky is not blue because of the sea. Deserts have blue sky too!",
+      "visualAction": "Hard wipe from a blue sea to a dry orange desert under the same blue sky, where Wally stands on the sand and shakes his head at a crossed-out wave symbol."
+    },
+    {
+      "narration": "At sunset the light travels far. The blue bounces away, and red stays.",
+      "visualAction": "Slow wide shot: the sun sinks, its long light path stretches across the frame, blue balls peel off to the sides, and the sky fades to orange and red around Wally."
+    },
+    {
+      "narration": "The sky is blue because blue bounces. Blue bounces everywhere!",
+      "visualAction": "Back to the opening field: the camera tilts up from Wally to the full blue sky while a few blue balls bounce past the frame."
+    }
+  ]
+}
