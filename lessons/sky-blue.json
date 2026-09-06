@@ -1,0 +1,123 @@
+{
+  "topic": "why is the sky blue?",
+  "audience": "5 year olds",
+  "title": "Blue Bounces!",
+  "bigQuestion": "Why is the sky blue?",
+  "durationSeconds": 60,
+  "targetSceneCount": 12,
+  "suggestedTopics": [
+    "Why do clouds look white and fluffy?",
+    "Why does the moon change shape every night?",
+    "Where do rainbows come from after the rain?"
+  ],
+  "steps": [
+    {
+      "role": "hook",
+      "title": "Look up",
+      "teachingGoal": "Ask the one question the whole lesson answers.",
+      "narration": "Look up! The sky is blue. Where does the blue come from?",
+      "concept": "The sky looks blue everywhere, so something must make it that colour.",
+      "summary": "Tung asks where the blue of the sky comes from.",
+      "visualAction": "Wide low-angle shot: Tung stands in a grassy field and points straight up at a huge flat blue sky that fills the top of the frame."
+    },
+    {
+      "role": "foundation",
+      "title": "White light is a hiding place",
+      "teachingGoal": "Show that white sunlight is all the colours together.",
+      "narration": "Sunlight looks plain white. But every colour is hiding inside it.",
+      "concept": "White sunlight is all the colours mixed together.",
+      "summary": "Every colour hides inside plain white sunlight.",
+      "visualAction": "Medium shot on a dark background: one narrow white sunbeam cuts across the frame, and Tung leans in close to peer along it."
+    },
+    {
+      "role": "foundation",
+      "title": "The rainbow jumps out",
+      "teachingGoal": "Split white light into named colours the child already knows.",
+      "narration": "Let the light out, and a rainbow jumps free. Red, yellow, green, blue!",
+      "concept": "White light can be split into a rainbow of separate colours.",
+      "summary": "The white beam splits into a rainbow fan.",
+      "visualAction": "Snap cut to a close shot: the white beam strikes a clear glass block and springs out of the far side as a wide rainbow fan that sweeps across the frame."
+    },
+    {
+      "role": "foundation",
+      "title": "Bouncy blue, slow red",
+      "teachingGoal": "Give blue and red one physical character each.",
+      "narration": "Blue is the tiny bouncy colour. Red is the big slow one.",
+      "concept": "Blue light is small and bounces easily, and red light is big and travels straight.",
+      "summary": "Blue is small and bouncy, and red is big and slow.",
+      "visualAction": "Split frame: on the left a small blue ball bounces fast and high, on the right a big red ball rolls slowly in a straight line, and Tung looks from one side to the other."
+    },
+    {
+      "role": "transition",
+      "title": "The air is not empty",
+      "teachingGoal": "Reveal the air as something the colours can hit.",
+      "narration": "The air looks empty. It is not! It is full of tiny bits.",
+      "concept": "Air is made of countless tiny bits that are too small to see.",
+      "summary": "Empty-looking air is full of tiny bits.",
+      "visualAction": "The camera pushes in slowly on plain blue air until countless pale specks drift into view, and Tung steps in beside them and taps one."
+    },
+    {
+      "role": "mechanism",
+      "title": "Red goes straight through",
+      "teachingGoal": "Show red light passing the air bits without a bounce.",
+      "narration": "Big slow red goes straight past the tiny bits. Whoosh!",
+      "concept": "Red light travels through the air without being knocked off course.",
+      "summary": "Red light passes the tiny bits in a straight line.",
+      "visualAction": "Flat side-on diagram shot: a big red ball rolls through a drifting field of specks in one straight line and leaves the frame, while Tung tracks it with a sweeping point."
+    },
+    {
+      "role": "mechanism",
+      "title": "Blue bounces",
+      "teachingGoal": "Show blue light scattering off the air bits.",
+      "narration": "Little blue hits them and bounces away. Boing! Boing!",
+      "concept": "Blue light hits the tiny bits of air and bounces off in new directions.",
+      "summary": "Blue light bounces off the tiny bits of air.",
+      "visualAction": "The same side-on diagram: a small blue ball enters, strikes speck after speck, and ricochets in a new direction on every hit, with a snappy held pose at each bounce."
+    },
+    {
+      "role": "mechanism",
+      "title": "The whole sky fills up",
+      "teachingGoal": "Turn one bounce into a sky full of blue, with a refrain.",
+      "narration": "Blue bounces all over the sky. Say it with me: blue bounces!",
+      "concept": "Bounced blue light spreads out until it fills the whole sky.",
+      "summary": "Bounced blue light fills the whole sky.",
+      "visualAction": "Fast pull back to a wide shot: hundreds of blue balls ricochet across the sky until the frame turns solid blue, and Tung cheers from the bottom corner."
+    },
+    {
+      "role": "mechanism",
+      "title": "Blue reaches you",
+      "teachingGoal": "Connect the scattered blue to what the child sees.",
+      "narration": "So blue comes down to your eyes from every part of the sky.",
+      "concept": "You see blue from every direction because bounced blue light arrives from everywhere.",
+      "summary": "Bounced blue light arrives from every direction.",
+      "visualAction": "Ground-level shot from behind Tung: thin blue arrows rain down from every part of the sky and meet at the spot where he stands looking up."
+    },
+    {
+      "role": "misconception",
+      "title": "Not the sea",
+      "teachingGoal": "Correct the common idea that the sky copies the ocean.",
+      "narration": "The sky is not blue because the sea is blue. Deserts have blue sky too!",
+      "concept": "The sky is not a reflection of the ocean.",
+      "summary": "The sky is blue over dry deserts as well as over the sea.",
+      "visualAction": "Hard wipe from a blue sea to a dry orange desert under the same blue sky, where Tung stands on the sand and shakes his head at a crossed-out wave symbol."
+    },
+    {
+      "role": "example",
+      "title": "Sunset red",
+      "teachingGoal": "Use the same rule to explain a sunset.",
+      "narration": "At sunset the light travels far. The blue bounces away, and red stays.",
+      "concept": "At sunset light crosses much more air, so the blue bounces away and red light is left.",
+      "summary": "Sunsets are red because the blue has bounced away.",
+      "visualAction": "Slow wide shot: the sun sinks, its long light path stretches across the frame, blue balls peel off to the sides, and the sky fades to orange and red around Tung."
+    },
+    {
+      "role": "recap",
+      "title": "Blue bounces everywhere",
+      "teachingGoal": "Close on the one sentence the child should keep.",
+      "narration": "The sky is blue because blue bounces. Blue bounces everywhere!",
+      "concept": "Blue light bounces most in air, so the sky looks blue.",
+      "summary": "The sky is blue because blue light bounces most.",
+      "visualAction": "Back to the opening field: the camera tilts up from Tung to the full blue sky while a few blue balls bounce past the frame."
+    }
+  ]
+}

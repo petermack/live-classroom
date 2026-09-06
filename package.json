@@ -14,6 +14,7 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "test": "node --import tsx --test src/**/*.test.ts",
+    "render": "node --experimental-strip-types scripts/render-lesson.mjs",
     "soundtrack": "node scripts/generate-soundtrack.mjs",
     "verify": "node scripts/verify-classroom.mjs"
   },
