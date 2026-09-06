@@ -1,18 +1,21 @@
-<!-- BEGIN:nextjs-agent-rules -->
-
-# This is NOT the Next.js you know
-
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
-
-This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
-
-<!-- END:nextjs-agent-rules -->
-
 # Working in this repo
 
-- Gates: `npm run typecheck && npm run lint && npm test` must pass before any change is done; `npm run build && npm run verify` for anything touching the server or config.
-- **Lessons cost real money.** Never start a lesson, queue a topic, or call fal to test — one lesson is twelve paid video renders. The free path is `npm run verify` (boots the app with a blank key and proves no spend is admitted).
-- All prompts and the teacher live in `src/lib/classroom-config.ts`. The character sheet must stay short numbered lines: fal's prompt rewriter copies lists verbatim but paraphrases prose and silently drops features.
-- After any prompt change, validate with `node --experimental-strip-types scripts/probe-h3-expansion.mjs` (renders ONE paid clip, prints which character-sheet lines survived the rewrite) — only with the owner's consent, since it spends their fal credit.
-- The lesson runtime is an in-memory singleton; server-code changes need a dev-server restart to take effect.
+This is a command-line content pipeline, not a web app. It turns a hand-written lesson plan
+into one narrated cartoon video. There is no server, no browser code and no runtime planner.
+
+- Gates: `npm run typecheck && npm run lint && npm test` must pass before any change is done.
+  Add `npm run verify` for anything that touches the render command, the plan schema or the
+  prompt compiler.
+- **Rendering costs real money.** One scene is one paid clip. Never render to test. The free
+  path is `npm run render -- <plan> --dry-run`, which compiles every prompt and calls nothing,
+  and `npm run verify`, which proves the command refuses to spend without a key.
+- Ask the owner before you run any command that can reach fal. `--scenes 1` is the smallest
+  paid check and needs consent like any other.
+- The character and the style live only in `src/lib/teacher.ts`. The character sheet must stay
+  short numbered lines: fal's prompt rewriter copies lists word for word, but it paraphrases
+  prose and drops features without saying so.
+- After any prompt change, render one scene (with consent), then run
+  `npm run prompts -- <slug>` to see which character-sheet lines survived the rewrite.
+- Lesson plans are written by hand in `lessons/`. Do not add a model call that writes them.
+  `docs/lesson-plan-authoring.md` is the format and the rules.
 - Never commit `.env.local` or `recordings/`.

@@ -1,0 +1,55 @@
+{
+  "title": "Where rain comes from",
+  "topic": "the water cycle, for a curious beginner",
+  "bigQuestion": "How does water get from the sea into a raincloud?",
+  "scenes": [
+    {
+      "narration": "The rain on your window was in the ocean last week.",
+      "visualAction": "Wide shot. Wally stands at a rain-streaked window and points a paw at one running drop."
+    },
+    {
+      "narration": "The sun heats the surface of the sea all day long.",
+      "visualAction": "Cut to a flat sea under a large sun. Warm arrows rise off the water."
+    },
+    {
+      "narration": "That heat turns the top layer of water into invisible vapour.",
+      "visualAction": "Close shot on the sea surface. Tiny water shapes lift off and fade out of view."
+    },
+    {
+      "narration": "Warm vapour is light, so it climbs.",
+      "visualAction": "The camera tilts up with a column of pale vapour as it rises past Wally."
+    },
+    {
+      "narration": "Higher up, the air is much colder.",
+      "visualAction": "Wally holds a big thermometer beside the rising column. The reading drops."
+    },
+    {
+      "narration": "Cold makes the vapour gather back into tiny drops.",
+      "visualAction": "Extreme close shot. Specks of vapour meet and join into small round drops."
+    },
+    {
+      "narration": "Millions of those drops together are what you call a cloud.",
+      "visualAction": "The camera pulls back fast from one drop to a whole white cloud."
+    },
+    {
+      "narration": "A cloud is not a bag of water. It is a crowd of drops.",
+      "visualAction": "Wally cuts a cloud open like a loaf. Inside are separate floating drops, not a pool."
+    },
+    {
+      "narration": "The drops bump, join, and slowly grow heavier.",
+      "visualAction": "Two drops collide and merge. The new drop sinks a little in the frame."
+    },
+    {
+      "narration": "When a drop is too heavy for the air to hold, it falls.",
+      "visualAction": "One fat drop breaks away and drops out of the bottom of the cloud."
+    },
+    {
+      "narration": "That fall is rain, and it lands back in the sea.",
+      "visualAction": "Wide shot of rain falling into the same ocean from the second scene."
+    },
+    {
+      "narration": "Sun lifts it, cold gathers it, weight drops it. Then it starts again.",
+      "visualAction": "Wally traces a full circle diagram of sea, vapour, cloud and rain with his paw."
+    }
+  ]
+}

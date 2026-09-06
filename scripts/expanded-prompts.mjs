@@ -1,37 +1,44 @@
-// Prints fal's rewritten ("expanded") H3 prompt for every scene of a session still held by the dev server,
-// plus which parts of the Tung spec survived the rewrite.
-// Usage: node scripts/expanded-prompts.mjs <sessionId> [port]
-const [sessionId, port = "3000"] = process.argv.slice(2);
-if (!sessionId) throw new Error("usage: node scripts/expanded-prompts.mjs <sessionId> [port]");
+// Prints what fal ACTUALLY rendered from. H3 rewrites every prompt before it renders, and a
+// rewrite can drop a feature of the character. This reads the saved scenes and shows which
+// numbered character-sheet lines survived.
+// Usage: npm run prompts -- <slug> [--full]
+import { readdir, readFile } from "node:fs/promises";
+import { join } from "node:path";
+import process from "node:process";
 
-const response = await fetch(`http://localhost:${port}/api/classroom/${sessionId}`);
-if (!response.ok) throw new Error(`session fetch failed ${response.status}`);
-const payload = await response.json();
-const scenes = payload.outcome?.snapshot?.scenes ?? [];
-if (scenes.length === 0) throw new Error(payload.error ?? "no scenes in this session (restarted server?)");
+const [slug, ...flags] = process.argv.slice(2);
+if (!slug) throw new Error("usage: npm run prompts -- <slug> [--full]");
+const directory = join(process.cwd(), "recordings", slug);
 
+const files = (await readdir(directory)).filter((name) => /^scene-\d+\.json$/.test(name)).sort();
+if (files.length === 0) throw new Error(`no rendered scenes in ${directory}`);
+
+// One pattern per feature that the rewriter has dropped before.
 const features = {
+  wombat: /wombat/i,
+  glasses: /glasses|spectacles/i,
+  scarf: /scarf/i,
+  yellow: /yellow/i,
   nose: /nose/i,
-  cheeks: /cheek/i,
-  teeth: /teeth/i,
-  irises: /iris/i,
-  feet: /feet|toes/i,
-  grain: /grain strok/i,
-  bat: /\bbat\b/i,
-  "no clothing": /no clothing|no tie|no hat/i,
-  accent: /American/i,
+  ears: /ears?\b/i,
+  claws: /claws?\b/i,
+  "flat 2D": /flat 2d|cel/i,
+  accent: /australian/i,
 };
-const header = ["scene", "shots", ...Object.keys(features)].join(" | ");
-console.log(header);
-for (const [index, scene] of scenes.entries()) {
-  const text = scene.segment?.expandedPrompt ?? "";
+
+console.log(["scene", "shots", ...Object.keys(features)].join(" | "));
+for (const file of files) {
+  const scene = JSON.parse(await readFile(join(directory, file), "utf8"));
+  const text = scene.expandedPrompt ?? "";
   const shots = (text.match(/\[Shot/g) ?? []).length;
   const row = Object.values(features).map((pattern) => (pattern.test(text) ? "Y" : "-"));
-  console.log([String(index + 1).padStart(5), String(shots).padStart(5), ...row].join(" | "));
+  console.log([String(scene.sceneNumber).padStart(5), String(shots).padStart(5), ...row].join(" | "));
 }
-console.log();
-for (const [index, scene] of scenes.entries()) {
-  console.log(`===== scene ${index + 1} =====`);
-  console.log(scene.segment?.expandedPrompt ?? "(no expansion returned)");
-  console.log();
+
+if (flags.includes("--full")) {
+  for (const file of files) {
+    const scene = JSON.parse(await readFile(join(directory, file), "utf8"));
+    console.log(`\n===== scene ${scene.sceneNumber} =====`);
+    console.log(scene.expandedPrompt ?? "(fal returned no expansion)");
+  }
 }
