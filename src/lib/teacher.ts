@@ -7,8 +7,8 @@ export const TEACHER = {
     "a warm medium-pitch adult male voice with a clear standard Australian English accent (never American or British) and a calm, friendly, unhurried delivery",
   characterSheet: [
     "1. Body: a plump standing wombat on two legs, about three heads tall, with a wide rounded body.",
-    "2. Head: one big round head, as wide as the shoulders, held upright.",
-    "3. Color: warm mid-brown fur as a solid flat fill, with a slightly lighter brown belly.",
+    "2. Head: one big round head, as wide as the shoulders, held upright, with a smooth unbroken outline.",
+    "3. Coat: short smooth warm mid-brown fur as a solid flat fill, with a slightly lighter brown belly.",
     "4. Ears: two small rounded ears, one at each top corner of the head, with dusty pink centers.",
     "5. Eyes: two large round black eyes set wide apart, each with one white highlight dot.",
     "6. Glasses: round thin black wire glasses over both eyes, with straight arms back to the ears.",
@@ -17,7 +17,7 @@ export const TEACHER = {
     "9. Scarf: one bright yellow knitted scarf around the neck, with one long end hanging down the chest. The scarf is the only clothing.",
     "10. Arms: two short rounded arms with small paws and three dark claws on each paw.",
     "11. Legs: two short legs with wide flat feet and three dark claws on each foot.",
-    "12. Nothing else on him: no shirt, no trousers, no hat, no bag, no accessories.",
+    "12. Nothing else on him: no hair, no spikes, no quills, no shirt, no trousers, no hat, no bag, no accessories.",
     "13. Drawn as flat 2D cel art with black ink outlines and soft shading; never 3D, never glossy, never photo-real.",
   ],
 } as const;
