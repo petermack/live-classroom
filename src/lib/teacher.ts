@@ -28,7 +28,7 @@ export const TEACHER_DESCRIPTION = [
 ].join("\n");
 
 export const STYLE =
-  "flat 2D hand-drawn cel animation in the style of a modern children's picture book: black ink outlines with soft rounded corners, gentle soft shading inside the outlines, and a light paper grain over the whole frame; a warm natural palette of mid-brown, cream, mustard yellow, soft sage green, dusty pink and clear sky blue; simple uncluttered backgrounds on an off-white paper ground with generous empty space; no gradients across large areas, no 3D rendering, no CGI, no photorealism, no glossy surfaces, no film scratches and no vintage grading; calm limited animation with clear held poses";
+  "flat 2D hand-drawn cel animation in the style of a modern children's picture book: black ink outlines with soft rounded corners, gentle soft shading inside the outlines, and a light paper grain over the whole frame; a warm natural palette of mid-brown, cream, mustard yellow, soft sage green, dusty pink and clear sky blue; simple uncluttered backgrounds on an off-white paper ground with generous empty space; no gradients across large areas, no 3D rendering, no CGI, no photorealism, no glossy surfaces; calm limited animation with clear held poses";
 
 export type ScenePromptInput = Readonly<{
   sceneNumber: number;
