@@ -22,6 +22,9 @@ const features = {
   nose: /nose/i,
   ears: /ears?\b/i,
   claws: /claws?\b/i,
+  // A rewriter drops a negative more readily than a feature, so watch these two closely.
+  "no hair": /no hair|hairless|without hair/i,
+  smooth: /smooth/i,
   "flat 2D": /flat 2d|cel/i,
   accent: /australian/i,
 };
